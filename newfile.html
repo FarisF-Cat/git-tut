@@ -1,0 +1,51 @@
+
+<!-- Git test file: modify and commit changes to test git workflows -->
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Git Test Page</title>
+	<style>
+		body { font-family: Arial, Helvetica, sans-serif; max-width: 720px; margin: 40px auto; padding: 0 16px; color: #222; }
+		header { display:flex; align-items:center; gap:12px; }
+		h1 { margin: 0; font-size: 1.6rem; }
+		.meta { color: #666; font-size: 0.9rem; }
+		button { margin-top: 12px; padding: 8px 12px; font-size: 1rem; }
+		pre { background:#f6f8fa; padding:12px; border-radius:6px; overflow:auto }
+	</style>
+</head>
+<body>
+	<header>
+		<h1>Git Test Page</h1>
+	</header>
+
+	<p class="meta">A tiny page you can change and commit to test git commands.</p>
+
+	<p id="status">Version: 1.0.0</p>
+
+	<ul>
+		<li>Edit this file and run <code>git status</code>, <code>git add</code>, <code>git commit</code>.</li>
+		<li>Change text in the list below to test diffs and merges.</li>
+		<li>Add or remove elements to practice branching workflows.</li>
+	</ul>
+
+	<button id="changeBtn">Update Status (DOM change)</button>
+
+	<h3>Sample content</h3>
+	<p>Make a small change here to verify your git workflow.</p>
+
+	<pre id="log">Log: (click the button to append a timestamp)</pre>
+
+	<script>
+		const btn = document.getElementById('changeBtn');
+		const status = document.getElementById('status');
+		const log = document.getElementById('log');
+		btn.addEventListener('click', () => {
+			const t = new Date().toLocaleString();
+			status.textContent = 'Last changed: ' + t;
+			log.textContent += '\n' + t + ' — DOM updated';
+		});
+	</script>
+</body>
+</html>
